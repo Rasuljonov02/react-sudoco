@@ -88,7 +88,7 @@ function Navbar() {
 						</button>
 					)}
 				</span>
-				<ul className="mt-4 flex flex-col gap-3">
+				<ul className="mt-4 flex flex-col gap-3 h-[400px] overflow-scroll">
 					{todos.map((todo, index) => (
 						<li
 							key={index}
