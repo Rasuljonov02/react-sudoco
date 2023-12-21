@@ -88,11 +88,11 @@ function Navbar() {
 						</button>
 					)}
 				</span>
-				<ul className="mt-4 gap-3">
+				<ul className="mt-4 flex flex-col gap-3">
 					{todos.map((todo, index) => (
 						<li
 							key={index}
-							className={`text-white flex gap-5 px-3 py-2 w-[400px] bg-slate-500 justify-between ${
+							className={`rounded-xl text-white flex gap-5 px-3 py-2 w-[400px] bg-slate-500 justify-between ${
 								editableTodoIndex === index ? "bg-slate-700" : ""
 							}`}
 						>
