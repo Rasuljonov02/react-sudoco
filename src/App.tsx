@@ -1,9 +1,9 @@
-import React from "react";
+import  "./main.css";
 import Main from "./components/index";
 
 function App() {
 	return (
-		<div className=" h-14 bg-gradient-to-r from-sky-400 to-indigo-500 h-[100vh]">
+		<div id="salom" className=" h-14  h-[100vh] text-white">
 			<Main />
 		</div>
 	);
