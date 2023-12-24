@@ -5,13 +5,13 @@ import deleteImage from "../delete.png";
 function Navbar() {
 	const [yangiTodo, setNewTodo] = useState("");
 	const [todos, setTodos] = useState<string[]>([]);
-	const [editableTodoIndex, setEditableTodoIndex] = useState<number | null>(null);
+	const [idol, olid] = useState<number | null>(null);
 
-	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const inputYan = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setNewTodo(event.target.value);
 	};
 
-	const handleAddTodo = () => {
+	const royhatgaQo = () => {
 		if (yangiTodo.trim() !== "") {
 			setTodos([...todos, yangiTodo]);
 			setNewTodo("");
@@ -21,43 +21,43 @@ function Navbar() {
 		}
 	};
 
-	const handleDeleteTodo = (index: number) => {
+	const del = (index: number) => {
 		const updatedTodos = [...todos];
 		updatedTodos.splice(index, 1);
 		setTodos(updatedTodos);
-		setEditableTodoIndex(null);
+		olid(null);
 		toast.success("Todo deleted successfully!");
 	};
 
-	const handleEditTodo = (index: number) => {
-		setEditableTodoIndex(index);
+	const qos = (index: number) => {
+		olid(index);
 		setNewTodo(todos[index]);
 	};
 
-	const handleSaveEdit = () => {
+	const save = () => {
 		if (yangiTodo.trim() !== "") {
 			const updatedTodos = [...todos];
-			updatedTodos[editableTodoIndex!] = yangiTodo;
+			updatedTodos[idol!] = yangiTodo;
 			setTodos(updatedTodos);
 			setNewTodo("");
-			setEditableTodoIndex(null);
+			olid(null);
 			toast.success("Todo edited successfully!");
 		} else {
 			toast.error("Please enter a valid todo.");
 		}
 	};
 
-	const handleCancelEdit = () => {
-		setEditableTodoIndex(null);
+	const bekor = () => {
+		olid(null);
 		setNewTodo("");
 	};
 
-	const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+	const saqYoq = (event: React.KeyboardEvent<HTMLInputElement>) => {
 		if (event.key === "Enter") {
-			if (editableTodoIndex !== null) {
-				handleSaveEdit();
+			if (idol !== null) {
+				save();
 			} else {
-				handleAddTodo();
+				royhatgaQo();
 			}
 		}
 	};
@@ -72,20 +72,20 @@ function Navbar() {
 						type="text"
 						placeholder="So'z kiriting"
 						value={yangiTodo}
-						onChange={handleInputChange}
-						onKeyPress={handleKeyPress}
+						onChange={inputYan}
+						onKeyPress={saqYoq}
 					/>
-					{editableTodoIndex !== null ? (
+					{idol !== null ? (
 						<>
 							<button
 								className="px-3 py-2 bg-slate-600 text-yellow-50 rounded-xl italic hover:-translate-y-1 active:scale-90"
-								onClick={handleSaveEdit}
+								onClick={save}
 							>
 								Saqlash
 							</button>
 							<button
 								className="px-3 py-2 bg-slate-600 text-yellow-50 rounded-xl italic hover:-translate-y-1 active:scale-90"
-								onClick={handleCancelEdit}
+								onClick={bekor}
 							>
 								Bekor qilish
 							</button>
@@ -93,7 +93,7 @@ function Navbar() {
 					) : (
 						<button
 							className="px-5 py-2 bg-slate-600 text-yellow-50 rounded-xl italic hover:-translate-y-1 active:scale-90"
-							onClick={handleAddTodo}
+							onClick={royhatgaQo}
 						>
 							Saqlash
 						</button>
@@ -105,10 +105,10 @@ function Navbar() {
 							id="aa"
 							key={index}
 							className={`rounded-xl text-white flex gap-5 px-3 py-2 w-[400px] bg-slate-500 justify-between ${
-								editableTodoIndex === index ? "bg-slate-700" : ""
+								idol === index ? "bg-slate-700" : ""
 							}`}
 						>
-							{editableTodoIndex === index ? (
+							{idol === index ? (
 								<p className="w-[150px] px-2 py-1 rounded-md bg-slate-600 text-white">
 									{yangiTodo}
 								</p>
@@ -117,20 +117,20 @@ function Navbar() {
 							)}
 
 							<span className="flex gap-1 items-center">
-								{editableTodoIndex !== index && (
+								{idol !== index && (
 									<img
 										id="pen"
 										className="cursor-pointer w-[25px]"
 										src="https://cdn-icons-png.flaticon.com/512/1860/1860115.png"
 										alt=""
-										onClick={() => handleEditTodo(index)}
+										onClick={() => qos(index)}
 									/>
 								)}
 								<img
 									className="cursor-pointer"
 									src={deleteImage}
 									alt="Delete"
-									onClick={() => handleDeleteTodo(index)}
+									onClick={() => del(index)}
 								/>
 							</span>
 						</li>
@@ -144,14 +144,23 @@ function Navbar() {
 
 export default Navbar;
 
-//     newTodo: Todos qoʻshish .
-//     todos: Todos ro'yxatini kuzatib boradi.
-//     editableTodoIndex: Tahrirlanayotgan ishning indeksini kuzatib boradi.
 
-//     handleInputChange: Foydalanuvchi turlari sifatida newTodo holatini yangilaydi.
-//     handleAddTodo: Roʻyxatga yangi topshiriq qoʻshadi.
-//     handleDeleteTodo: Roʻyxatdagi topshiriqni oʻchiradi.
-//     handleEditTodo: Muayyan vazifa uchun tahrirlash rejimini yoqadi.
-//     handleSaveEdit: Tahrirlash paytida kiritilgan o'zgarishlarni saqlaydi.
-//     handleCancelEdit: Tahrirlash rejimini bekor qiladi.
-//     handleKeyPress: Vazifalarni qo'shish yoki saqlash uchun Enter tugmasini bosing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
