@@ -3,7 +3,7 @@ import Project from "./project";
 
 function Main() {
 	return (
-		<div className="  w-[100%]  ">
+		<div className="   ">
 			<Project />
 		</div>
 	);
