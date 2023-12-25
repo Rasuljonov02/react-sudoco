@@ -1,5 +1,5 @@
 function Contac() {
-	const divCount = 9;
+	const divSon = 9;
 
 	// reng Remov
 	const bgRemov = () => {
@@ -17,7 +17,7 @@ function Contac() {
 					}
 			}
 	};
-
+ 
 	// reng add
 	const celDiv = (i: number) => {
 			bgRemov();
@@ -34,22 +34,22 @@ function Contac() {
 
 	const sudokuBord = () => {
 			const divElements = [];
-
-			for (let i = 0; i < divCount; i++) {
+// cell
+			for (let i = 0; i < divSon; i++) {
 					divElements.push(
 							<div
 									id={`cell${i}`}
 									key={i}
 									className="childDiv cursor-pointer grid place-items-center bg-white w-[65px] h-[65px] gap-1"
-				
+
 							>
 									{i + 1}
 							</div>
 					);
 			}
-
+// katta div
 			const rowElements = [];
-			for (let i = 0; i < divCount; i++) {
+			for (let i = 0; i < divSon; i++) {
 					rowElements.push(
 							<div
 									key={i}
@@ -69,8 +69,7 @@ function Contac() {
 			<div className="w-[100%] grid place-items-center h-[100vh]">
 					<div
 							id="kataCell"
-							className="grid grid-cols-3 grid-rows-3 border border-black w-[600px] h-[600px]"
-					>
+							className="grid grid-cols-3 grid-rows-3 border border-black w-[600px] h-[600px]">
 							{sudokuBord()}
 					</div>
 			</div>
