@@ -17,7 +17,7 @@ function Contac() {
 					}
 			}
 	};
- 
+
 	// reng add
 	const celDiv = (i: number) => {
 			bgRemov();
@@ -40,7 +40,7 @@ function Contac() {
 							<div
 									id={`cell${i}`}
 									key={i}
-									className="childDiv cursor-pointer grid place-items-center bg-white w-[65px] h-[65px] gap-1"
+									className="childDiv active:scale-95 cursor-pointer grid place-items-center bg-white w-[65px] h-[65px] gap-1"
 
 							>
 									{i + 1}
